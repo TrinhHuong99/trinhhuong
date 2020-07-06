@@ -1,0 +1,18 @@
+
+.cre-groupbook{
+    left: 23%;
+    background-color: darksalmon;
+    border-radius: 2rem;
+    top: 27%;
+    height: 400px;
+}
+.title-groupcre h1{
+	text-align: center;
+	margin-top: 20px;
+}
+.body-cregroup {
+    padding-right: 50px !important;
+}
+.btncre {
+	margin-top: 109px;
+}

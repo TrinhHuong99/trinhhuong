@@ -1,0 +1,67 @@
+<div class="page-header">
+	<div class="page-block">
+		<div class="row align-items-center">
+			<div class="col-md-8">
+				<div class="page-header-title">
+					<h4 class="m-b-10">Công Ty Đặt Hàng</h4>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="pcoded-inner-content">
+	<div class="main-body">
+		<div class="page-wrapper">
+			<div class="page-body">
+				<div class="row">
+					<div class="col-md-9 text-label-center"  style="margin-left: 13%;">
+						<div class="card">
+							<div class="card-header text-createcommand">
+									<h4 class="modal-title font-text font-faauto text-label-center" >Thêm Công Ty Đặt Hàng </h4>
+								<p><?php $this->flashSession->output(); ?></p>
+							</div>
+							<div class="card-block">
+								<?php echo $this->tag->form(["companyorders/create","autocomplete" => "off",
+									"class" => "form-horizontal",
+									"id"=>"create_orders",
+									"enctype" => "multipart/form-data"]); ?>
+
+									<div class="form-group row">
+										<label class="col-sm-2 col-form-label text-label-right  font-text"> Tên công ty: <b style="color: red">(*)</b> </label>
+										<div class="col-sm-10">
+											<input class="form-control" name="company_name"  getdata="<?php echo $this->url->get('companyorders/addvalidate')?>" placeholder="Tập đoàn Tiền Phong..."  value="" >
+											<span class="messages"></span>
+										</div>
+									</div>
+
+									<div class="form-group row">
+										<label class="col-sm-2 col-form-label text-label-right  font-text">Địa chỉ: <b style="color: red">(*)</b> </label>
+										<div class="col-sm-10">
+											<input type="text" class="form-control"  name="address" placeholder="Hà Nội..." >
+											<span class="messages"></span>
+										</div>
+									</div>
+									<div class="form-group row">
+										<label class="col-sm-2 col-form-label text-label-right  font-text"> Link web: <b style="color: red">(*)</b> </label>
+										<div class="col-sm-10">
+											<input type="text" class="form-control" name="linkweb"  placeholder="https://hocmai.bitrix24.com/..." value="" >
+											<span class="messages"></span>
+										</div>
+									</div>
+									<div>
+										<input style="float: left; width: 100px" type="reset" class="btn btn-secondary" value="Reset">
+										<a  style="float: right; width: 100px" href="<?php echo $this->url->get('orders')?>" class ="btn btn-primary m-b-0 ">Đóng</a>
+										<input style="float: right; margin-right: 20px; width: 100px" type="submit" class="btn btn-danger" value="Thêm">
+									</div>
+
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+				<!-- [ page content ] end -->
+			</div>
+		</div>
+
+	</div>
+</div>

@@ -1,0 +1,148 @@
+<div class="page-header">
+    <div class="page-block">
+        <div class="row align-items-center">
+            <div class="col-md-8">
+                <div class="page-header-title">
+                    <h4 class="m-b-10">Quản lý thông tin sách</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="pcoded-inner-content">
+    <div class="main-body">
+        <div class="page-wrapper">
+            <div class="page-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                         <div class="card-header font-text font-faauto text-label-center  text-createcommand">
+                          <h4>Chỉnh Sửa Thông Tin Sách</h4>
+                          <p><?php $this->flashSession->output(); ?></p>
+                      </div>
+                      <div class="card-block">
+                          <?php echo $this->tag->form(["book/update/" . $book->id,"autocomplete" => "off",
+                           "class" => "form-horizontal",
+                           "id"=>"edit_book",
+                           "enctype" => "multipart/form-data"]); ?>
+                           <div class="form-group row">
+                            <label class="col-sm-2 col-form-label text-label-right font-text"> Mã sách:<b style="color: red">(*)</b></label>
+                            <div class="col-sm-10">
+                             <input type="text" min="1" maxlength="3" class="form-control" name="code" readonly=""  value="<?= $book->code?>" >
+                             <span class="messages"></span>
+                         </div>
+                     </div>
+                     <div class="form-group row">
+                        <label class="col-sm-2 col-form-label text-label-right font-text">Loại sách:<b style="color: red">(*)</b></label>
+                        <div class="col-sm-10">
+                         <select name="group_id" class="browser-default custom-select">
+                          <?php foreach($group_id as $key=>$val ) { ?>
+                           <option value="<?php echo $val->id ?>" <?php echo $book->group_id == $val->id ? 'selected' : '' ?>>
+                            <?php echo $val->name?></option>
+                        <?php } ?>
+                    </select>
+                    <span class="messages"></span>
+                </div>
+            </div>
+      <div class="form-group row">
+            <label class="col-sm-2 col-form-label text-label-right font-text">Tên sách:<b style="color: red">(*)</b></label>
+            <div class="col-sm-10">
+                  <input type="text" class="form-control" name="name"  value="<?= $book->name?>" >
+                  <span class="messages"></span>
+            </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label text-label-right font-text">Giáo viên:<b style="color: red">(*)</b></label>
+        <div class="col-sm-10">
+            <select name="teacher[]" multiple="multiple" class="js-select-book col-sm-12">
+                <?php foreach ($teachers as $key => $val){ ?>
+                    <option value="<?php echo $val->code ?>"
+                        <?php foreach($book->BookTeacher as $value){ ?>
+                            <?php echo $value->teacher_code == $val->code ? 'selected' : '' ?>
+                        <?php } ?>
+                        >
+                        <?php echo $val->fullname?>
+                    </option>
+                <?php }?>
+            </select>
+
+            <span class="messages"></span>
+        </div>
+    </div>
+   <!--  <div class="form-group row">
+        <label class="col-sm-2 col-form-label text-label-right">Lớp (*)</label>
+        <div class="col-sm-10">
+            <select name="class_id" class="browser-default custom-select">
+                <option value="1"<?php echo $book->class_id == 1 ?'selected' : ''?>> Lớp 1</option>
+                <option value="2" <?php echo $book->class_id == 2 ?'selected' : ''?>> Lớp 2</option>
+                <option value="3" <?php echo $book->class_id == 3 ?'selected' : ''?>> Lớp 3</option>
+                <option value="4" <?php echo $book->class_id == 4 ?'selected' : ''?>> Lớp 4</option>
+                <option value="5" <?php echo $book->class_id == 5 ?'selected' : ''?>> Lớp 5</option>
+                <option value="6" <?php echo $book->class_id == 6 ?'selected' : ''?>> Lớp 6</option>
+                <option value="7" <?php echo $book->class_id == 7 ?'selected' : ''?>> Lớp 7</option>
+                <option value="8" <?php echo $book->class_id == 8 ?'selected' : ''?> > Lớp 8</option>
+                <option value="9" <?php echo $book->class_id == 9 ?'selected' : ''?>> Lớp 9</option>
+                <option value="10" <?php echo $book->class_id == 10 ?'selected' : ''?>> Lớp 10</option>
+                <option value="11" <?php echo $book->class_id == 11 ?'selected' : ''?>> Lớp 11</option>
+                <option value="12" <?php echo $book->class_id == 12 ?'selected' : ''?>> Lớp 12</option>
+            </select>
+            <span class="messages"></span>
+        </div>
+    </div> -->
+
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label text-label-right  font-text ">Tài liệu:</label>
+        <div class="col-sm-10">
+            <input type="file" id="fileInput" class="form-control" name="attachs" value="<?= $book->attachs?>" >
+            <input type="text" class="form-control" name="hdsd" hidden="" value="<?= $book->attachs?>" >
+            <span class="messages"></span>
+            <br>
+            <label> <?php echo $book->attachs?></label>
+        </div>
+    </div>
+
+
+<!-- </div>
+</div>
+
+<div class="card">
+    <div class="card-header text-createcommand">
+        <h4>Chỉnh sửa template email</h4>
+        <p><?php $this->flashSession->output(); ?></p>
+    </div>
+    <div class="card-block">
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label text-label-right">Tiêu đề email (*)</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="subjectemail"  value="<?php echo $book->BookTempMail ? $book->BookTempMail->title : NULL?>" >
+                <span class="messages"></span>
+            </div>
+        </div> -->
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label text-label-right  font-text">Ghi chú:</label>
+            <div class="col-sm-10">
+                <!--                                            <textarea id="editor1" rows="2" style="width: 100% " name="contenmail">--><?php //echo $book->BookTempMail ? $book->BookTempMail->content : NULL?><!--</textarea>-->
+                <textarea class="form-control" name="contenmail"><?php echo $book->BookTempMail ? $book->BookTempMail->content : NULL?></textarea>
+                <br/>
+                <p class="erroreditor" style="color: red; font-size: 15px"></p>
+                <p hidden class="results" style="color: green;"></p>
+                <span class="messages"></span>
+            </div>
+        </div>
+
+        <div>
+            <input style="float: left; width: 100px" type="reset" class="btn btn-secondary" value="Reset">
+            <a  style="float: right; width: 100px" href="<?php echo $this->url->get('book')?>" class ="btn btn-primary m-b-0 ">Đóng</a>
+            <input style="float: right; margin-right: 20px; width: 100px" type="submit" class="btn btn-danger" value="Sửa">
+        </div>
+    </div>
+</div>
+</form>
+</div>
+</div>
+<!-- [ page content ] end -->
+</div>
+</div>
+</div>
+</div>

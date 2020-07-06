@@ -1,0 +1,286 @@
+<div class="page-wrapper">
+	<div class="page-body">
+		<!-- [ page content ] start -->
+		<div class="row">
+			<!-- site Analytics card start -->
+			<div class="col-lg-10  " style="margin-left: 10%" >
+				<div class="card ca-details ">
+					<div class="card-header font-text text-label-center  font-faauto ">
+						<h4>Chi Tiết Hóa Đơn<b style="color: chocolate"><i> <?= $bills->bill_code?> </i></b> </h4>
+						<p>
+							<?php $this->flashSession->output(); ?></p>
+						</div>
+						<div class="card-block pl50 ">
+							<div class="form-group row">
+								<div class="col-sm-6">
+									<div class="row">
+										<label class="col-sm-4 col-form-label text-label-left font-text">Mã hóa đơn:</label>
+										<div class="col-sm-8">
+											<label class="col-form-label"><?= $bills->bill_code?></label>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-6">
+									<div class="row">
+										<label class="col-sm-5 col-form-label text-label-left font-text">Giảm giá:</label>
+										<div class="col-sm-7">
+											<label class="col-form-label ">
+												<b style="color: chocolate"><?= $bills->discount?> %</b>
+											</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="form-group row">
+								<div class="col-sm-6">
+									<div class="row">
+										<label class="col-sm-4 col-form-label text-label-left font-text">Tên sách:</label>
+										<div class="col-sm-8">
+											<label class="col-form-label"><?=$books->name?></label>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-6">
+									<div class="row">
+										<label class="col-sm-5 col-form-label text-label-left font-text">Giá sách:</label>
+										<div class="col-sm-7">
+											 <label class="col-form-label">
+												<?php if($bills->price){ ?>
+													<?= $bills->price?><strong>đ</strong>
+												<?php } ?>
+											</label> 
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="form-group row">
+								<div class="col-sm-6">
+									<div class="row">
+										<label class="col-sm-4 col-form-label text-label-left font-text">Tên khách hàng:</label>
+										<div class="col-sm-8">
+											<label class="col-form-label"><?=$bills->name_customer?></label>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-6">
+									<div class="row">
+										<label class="col-sm-4 col-form-label text-label-left font-text">Ngày sinh KH:</label>
+										<div class="col-sm-8">
+											<label class="col-form-label"> <?=$bills->birthday_customer?></label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="form-group row">
+								<div class="col-sm-6">
+									<div class="row">
+										<label class="col-sm-4 col-form-label text-label-left font-text">Phụ trách:</label>
+										<div class="col-sm-8">
+											<label class="col-form-label">
+												 <?=$bills->created_by?>
+											</label>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-6">
+									<div class="row">
+										<label class="col-sm-4 col-form-label text-label-left font-text">Thời gian tạo:</label>
+										<div class="col-sm-8">
+											<label class="col-form-label" data-target="#bookkk_name" data-toggle="modal"> 
+												  <?=$bills->created_at?>
+											</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="form-group row">
+								<div class="col-sm-6">
+									<div class="row">
+										<label class="col-sm-4 col-form-label text-label-left font-text">Ghi chú:</label>
+										<div class="col-sm-8">
+											<label class="col-form-label" data-target="#addtaiban" data-toggle="modal">
+												  <?=$bills->note?>
+											</label>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-6">
+									<div class="row">
+										<label class="col-sm-5 col-form-label text-label-left font-text">Thời gian cập nhật:</label>
+										<div class="col-sm-7">
+											<label class="col-form-label"> <?=$bills->updated_at?></label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="form-group col-sm-12 " >
+									<a  style="float: right" href="<?php echo $this->url->get('orders')?>" class ="text-label-right  btn btn-primary m-b-0 ">Đóng</a>
+							</div>
+						</div>
+					</div>
+				</div>  
+			</div>
+
+			<!-- site Analytics card end -->
+		</div>
+
+		<!-- [ page content ] end -->
+	</div>
+</div>
+<div class="modal fade" id="addtaiban" role="dialog">
+	<div class="modal-dialog">
+		<!-- Modal content-->
+		<div class="modal-content" >
+			<div class="modal-header">
+				<h4 class="modal-title font-text" style=" margin-left: 175px;">Chi Tiết  </h4>
+					<!-- <b style="color: chocolate"><i> <?=$company_orders->company_name?> </i></b> -->
+			</div>
+			<div class="modal-body "style=" padding-bottom: 0px;padding-left: 80px;">
+					<div class="form-group row">
+						<div class="col-sm-10">
+							<div class="row">
+								<label class="col-sm-4 col-form-label  font-text">Tên công ty:</label>
+								<div class="col-sm-8">
+									<label class="col-form-label"><b style="color: chocolate"><i> <?= $company_orders->company_name?></i></b></label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="form-group row">
+						<div class="col-sm-10">
+							<div class="row">
+								<label class="col-sm-4 col-form-label  font-text">Cơ sở chính:</label>
+								<div class="col-sm-8">
+									<label class="col-form-label"><?= $company_orders->address?></label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="form-group row">
+						<div class="col-sm-10">
+							<div class="row">
+								<label class="col-sm-4 col-form-label font-text">Link web:</label>
+								<div class="col-sm-8">
+									<label class="col-form-label"><?= $company_orders->linkweb?></label>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="form-group row">
+						<div class="modal-footer col-sm-12">
+							<button type="button" class="btn btn-primary resetform" data-dismiss="modal">Đóng</button>
+						</div>
+					</div>
+			</div>
+		</div>
+	</div>
+</div>
+	<div class="modal fade" id="bookkk_name" role="dialog">
+	<div class="modal-dialog">
+		<!-- Modal content-->
+		<div class="modal-content" style="width: 132%;" >
+			<div class="modal-header">
+				<h4 class="modal-title font-text" style=" margin-left: 259px;"> Chi Tiết  </h4>
+					<!-- <b style="color: chocolate"><i> <?=$company_orders->company_name?> </i></b> -->
+			</div>
+			<div class="modal-body ">
+					<div class="form-group row">
+						<div class="col-sm-6">
+							<div class="row">
+								<label class="col-sm-4 col-form-label  font-text">Mã sách:</label>
+								<div class="col-sm-8">
+									<label class="col-form-label"><?=$books->code?></label>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="row">
+								<label class="col-sm-4 col-form-label  font-text">Thể loại:</label>
+								<div class="col-sm-8">
+									<label class="col-form-label"> <?= $group_ids->name?></label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="form-group row">
+						<div class="col-sm-6">
+							<div class="row">
+								<label class="col-sm-4 col-form-label  font-text">Tên sách:</label>
+								<div class="col-sm-8">
+									<label class="col-form-label"><b style="color: chocolate"><i> <?= $books->name?></i></b></label>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="row">
+								<label class="col-sm-4 col-form-label  font-text">Số lượng:</label>
+								<div class="col-sm-8">
+									<label class="col-form-label"><?=$books->total_book?></label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="form-group row">
+						<div class="col-sm-6">
+							<div class="row">
+								<label class="col-sm-4 col-form-label  font-text">Phụ trách: </label>
+								<div class="col-sm-8">
+									<label class="col-form-label"><?=$books->created_by?></label>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="row">
+								<label class="col-sm-4 col-form-label  font-text">Giá:</label>
+								<div class="col-sm-8">
+									<label class="col-form-label"> <?=$books->price?></label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="form-group row">
+						<div class="col-sm-6">
+							<div class="row">
+								<label class="col-sm-4 col-form-label  font-text">Tài liệu: </label>
+								<div class="col-sm-8">
+									<label class="col-form-label"> <?= $books->attachs?></label>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="row">
+								<label class="col-sm-4 col-form-label  font-text">Thời gian tạo:</label>
+								<div class="col-sm-8">
+									<label class="col-form-label"><?= $books->created_at?></label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="form-group row">
+						<div class="col-sm-8">
+							<div class="row">
+								<label class="col-sm-4 col-form-label  font-text">Thời gian cập nhật: </label>
+								<div class="col-sm-8">
+									<label class="col-form-label">
+									 <?= $books->updated_at?> </label>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-4">
+							<div class="row">
+								<!-- <label class="col-sm-4 col-form-label  font-text">Tên công ty:</label> -->
+								<!-- <div class="col-sm-8"> -->
+									<!-- <label class="col-form-label"><b style="color: chocolate"><i> <?= $company_orders->company_name?></i></b></label> -->
+								<!-- </div> -->
+							</div>
+						</div>
+					</div>
+					<div class="form-group row">
+						<div class="modal-footer col-sm-12">
+							<button type="button" class="btn btn-primary resetform" data-dismiss="modal">Đóng</button>
+						</div>
+					</div>
+			</div>
+		</div>
+	</div>

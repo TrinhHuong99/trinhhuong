@@ -1,0 +1,155 @@
+<div class="page-header">
+    <div class="page-block">
+        <div class="row align-items-center">
+            <div class="col-md-8">
+                <div class="page-header-title">
+                    <h4 class="m-b-10">Quản Lý Nhân Viên</h4>
+                </div>
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="index.html">
+                            <i class="feather icon-home"></i>
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a href="#!">Quản Lý Nhân viên</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="pcoded-inner-content">
+    <div class="main-body">
+        <div class="page-wrapper">
+    <div class="page-body">
+        <div class="row">
+            <div class="col-md-10"  style="margin-left: 8%;">
+                <div class="card">
+                    <div class="card-header text-label-center  text-createcommand  font-text font-faauto">
+                        <h4>Thêm Nhân Viên</h4>
+                        <p><?php $this->flashSession->output(); ?></p>
+                    </div>
+                    <div class="card-block">
+                        <form  name="contactForm" method="post" action="" id="crete_teacher">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="row" style="margin-bottom: 15px;">
+                                        <div class="col-md-1"></div>
+                                        <div class="col-md-3 text-label-left">
+                                            <label class="col-form-label font-text " >Mã nhân viên:<b style="color: red">(*)</b></label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input onkeydown="keydownFunction()" placeholder="H89078...." id="kemtratrung" type="text" name="txtcode" class="form-control"
+                                                   geturl1="<?php echo $this->url->get('teacher/kiemtratrung/')?>">
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                         <div class="col-md-1"></div>
+                                        <div class="col-md-3 text-label-left">
+                                            <label class="float-label font-text ">Tên nhân viên:<b style="color: red">(*)</b></label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input type="text" name="txtfullname" placeholder="Trinh Thi Huong" class="form-control" >
+                                            <p style="color: red; ">
+                                                <?php if (isset($str['fullname'])){
+                                                    echo $str['fullname'];
+                                                }?>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                         <div class="col-md-1"></div>
+                                        <div class="col-md-3 text-label-left"> 
+                                            <label class="float-label font-text">SĐT:<b style="color: red">(*)</b></label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input type="text" placeholder="0968154168"  name="txtphone" class="form-control">
+                                            <p style="color: red; margin-top: 2px; margin-top: 10px;">
+                                                <?php if (isset($str['phone'])){
+                                                    echo $str['phone'];
+                                                }?>
+                                            </p>
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-1"></div>
+                                        <div class="col-md-3 text-label-left">
+                                            <label class="float-label font-text ">Email: </label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input type="email" placeholder="trinhhuong@...." name="txtemail" class="form-control" >
+                                            <p style="color: red; margin-top: 10px;">
+                                                <?php if (isset($str['email'])){
+                                                    echo $str['email'];
+                                                }?>
+                                            </p>
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                         <div class="col-md-1"></div>
+                                        <div class="col-md-3 text-label-left">
+                                            <label class="float-label font-text ">Địa chỉ:<b style="color: red">(*)</b></label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input type="text" placeholder="Quan1 - Ho Chi Minh ...." name="txtaddress" class="form-control" >
+                                            <p style="color: red; margin-top: 10px;">
+                                                <?php if (isset($str['address'])){
+                                                    echo $str['address'];
+                                                }?>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                         <div class="col-md-1"></div>
+                                        <div class="col-md-3 text-label-left">
+                                            <label class="float-label font-text ">Link facebook: </label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input style="margin-bottom: 15px" placeholder="Chỉ dùng cho sách ...." type="text" name="txtfacebook" class="form-control">
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-1"></div>
+                                        <div class="col-md-3 text-label-left">
+                                            <label class="float-label font-text ">Link kênh youtube: </label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input type="text" placeholder="Chỉ dùng cho sách ...." name="txtyoutube_chanel" class="form-control">
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group form-default">
+                                <div class="row">
+                                    <div class="col-md-4">
+
+                                    </div>
+                                    <div class="col-md-7">
+                                        <div class="row" style="margin-top: 20px; float: right; margin-right: 13px">
+                                            <div class="col-md-4"></div>
+                                            <div class="col-md-4 col-1 col-sm-1">
+                                                <a href="<?php echo $this->url->get('teacher') ?>" class="btn btn-danger btn-sm" style="width: 80px; font-size: 15px;">Huỷ</a>
+                                            </div>
+                                            <div class="col-md-4 col-1 col-sm-1"><button type="submit" class="btn btn-primary btn-sm" style="width: 80px; font-size: 15px;">Thêm</button></div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- [ page content ] end -->
+    </div>
+</div>
+
+    </div>
+</div>

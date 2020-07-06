@@ -1,0 +1,152 @@
+<div class="page-header">
+	<div class="page-block">
+		<div class="row align-items-center">
+			<div class="col-md-8">
+				<div class="page-header-title">
+					<h4 class="m-b-10">Quản lý thông tin sách</h4>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="pcoded-inner-content">
+	<div class="main-body">
+		<div class="page-wrapper">
+			<div class="page-body">
+				<div class="row">
+					<div class="col-md-12">
+
+						<div class="card">
+							<div class="card-header text-createcommand font-text font-faauto text-label-center ">
+								<h4>Thêm Thông Tin Sách</h4>
+								<p><?php $this->flashSession->output(); ?></p>
+							</div>
+							<div class="card-block">
+								<?php echo $this->tag->form(["book/create","autocomplete" => "off",
+									"class" => "form-horizontal",
+									"id"=>"create_book",
+									"enctype" => "multipart/form-data"]); ?>
+									<div class="form-group row">
+										<label class="col-sm-2 col-form-label text-label-right font-text"> Mã sách: <b style="color: red">(*)</b> </label>
+										<div class="col-sm-10">
+											<input placeholder="Nhập mã sách..." type="text" min="1" maxlength="3" class="form-control" name="code" id="codevalidate" getdata="<?php echo $this->url->get('book/addvalidate')?>"  value="" >
+											<span class="messages"></span>
+										</div>
+									</div>
+									<div class="form-group row">
+										<label class="col-sm-2 col-form-label text-label-right font-text">Loại sách: <b style="color: red">(*)</b> </label>
+										<div class="col-sm-10">
+											<select name="group_id" class="browser-default custom-select">
+												<?php foreach($group_id as $key=>$val ) {?>
+													<option value="<?php echo $val->id ?>"><?php echo $val->name?></option>
+
+												<?php } ?>
+											</select>
+											<span class="messages"></span>
+										</div>
+									</div>
+									<div class="form-group row">
+										<label class="col-sm-2 col-form-label text-label-right font-text">Tên sách: <b style="color: red">(*)</b> </label>
+										<div class="col-sm-4">
+											<input placeholder="Nhập tên sách..." type="text" class="form-control"  name="name"  value="" >
+											<span class="messages"></span>
+										</div>
+
+										<label class="col-sm-1 col-form-label text-label-center font-text" for="total_book">Giá:<b style="color: red">(*)</b>  </label>
+										<div class="col-lg-2">
+
+											<input type="text" class="form-control" placeholder="25.000" name="price" >
+										</div>
+
+										<label class="col-sm-2 col-form-label text-label-center font-text" for="total_book">Số lượng:<b style="color: red">(*)</b>  </label>
+										<div class="col-lg-1">
+
+											<input type="number" min="0" class="form-control" placeholder="2" name="total_book" >
+										</div>
+										
+										
+									</div>
+									<div class="form-group row">
+										<label class="col-sm-2 col-form-label text-label-right font-text">Nhân viên: <b style="color: red">(*)</b> </label>
+										<div class="col-sm-10">
+											<select name="teacher[]" id="selectedtest"  multiple="multiple" class="js-select-book col-sm-12">
+												<?php  foreach($teachers as $key=>$val) { ?>
+													<option value="<?php echo $val->code ?>"><?php echo $val->fullname ?></option>
+												<?php }?>
+											</select>
+										</div>
+									</div>
+									<!-- <div class="form-group row">
+										<label class="col-sm-2 col-form-label text-label-right">Lớp (*)</label>
+										<div class="col-sm-10">
+											<select name="class_id" class="browser-default custom-select">
+												<option value="1"> Lớp 1</option>
+												<option value="2"> Lớp 2</option>
+												<option value="3"> Lớp 3</option>
+												<option value="4"> Lớp 4</option>
+												<option value="5"> Lớp 5</option>
+												<option value="6"> Lớp 6</option>
+												<option value="7"> Lớp 7</option>
+												<option value="8"> Lớp 8</option>
+												<option value="9"> Lớp 9</option>
+												<option value="10"> Lớp 10</option>
+												<option value="11"> Lớp 11</option>
+												<option value="12"> Lớp 12</option>
+											</select>
+											<span class="messages"></span>
+										</div>
+									</div> -->
+
+									<div class="form-group row">
+										<label class="col-sm-2 col-form-label text-label-right font-text">Tài liệu :</label>
+										<div class="col-sm-10">
+											<input type="file" class="form-control" name="attachs" value="" >
+											<span class="messages"></span>
+										</div>
+									</div>
+
+
+
+<!-- 
+								</div>
+							</div>
+							<div class="card">
+								<div class="card-header text-createcommand">
+									<h4>Thêm template email</h4>
+								</div>
+								<div class="card-block">
+									<div class="form-group row">
+										<label class="col-sm-2 col-form-label text-label-right">Tiêu đề email (*)</label>
+										<div class="col-sm-10">
+											<input type="text" class="form-control" name="subjectemail"  value="" >
+											<span class="messages"></span>
+										</div>
+									</div>
+ -->
+									<div class="form-group row">
+										<label class="col-sm-2 col-form-label text-label-right font-text">Ghi chú: </label>
+										<div class="col-sm-10">
+											<!--                                            <textarea id="editor1" rows="4" style="width: 100%" name="contenmail"></textarea>-->
+											<textarea name="contenmail"></textarea>
+											<br/>
+											<p class="erroreditor" style="color: red; font-size: 15px"></p>
+											<p hidden class="results" style="color: green;"></p>
+											<span class="messages"></span>
+										</div>
+									</div>
+
+									<div>
+										<a  style="float: right; width: 100px" href="<?php echo $this->url->get('book')?>" class ="btn btn-primary m-b-0 ">Đóng</a>
+										<input style="float: right; margin-right: 20px; width: 100px" type="submit" class="btn btn-danger" value="Thêm">
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+				<!-- [ page content ] end -->
+			</div>
+		</div>
+
+	</div>
+</div>

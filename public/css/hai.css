@@ -1,0 +1,34 @@
+.alert-success{
+    background-color: #fff;
+    border-color: #9ccc65;
+    color: #29B921;
+}
+.alert {
+    font-size: 15px;
+    margin-bottom: 2rem;
+}
+td, th{
+    white-space: normal;
+}
+.error{
+    color: red;
+    padding-top: 10px;
+}
+#kemtratrung-error{
+    padding-top: 5px;
+}
+#txtfullname-error{
+    padding-top: 5px;
+}
+#txtphone-error {
+    padding-top: 5px;
+}
+#txtaddress-error{
+    padding-top: 5px;
+}
+#txtemail-error{
+    padding-top: 5px;
+}
+#themmoi{
+    line-height: 23px;
+}

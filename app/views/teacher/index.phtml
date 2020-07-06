@@ -1,0 +1,394 @@
+<style>
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+    }
+
+    .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+    input:checked + .slider {
+        background-color: #2196F3;
+    }
+
+    input:focus + .slider {
+        box-shadow: 0 0 1px #2196F3;
+    }
+
+    input:checked + .slider:before {
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px);
+    }
+
+    /* Rounded sliders */
+    .slider.round {
+        border-radius: 34px;
+    }
+
+    .slider.round:before {
+        border-radius: 50%;
+    }
+    table thead tr th{
+        text-align: center;
+    }
+    .lineheight{
+        line-height: 38px;
+    }
+    tbody tr td p{
+        /*border:1px solid gray;*/
+        width:100px;
+        height:auto;
+        word-wrap:break-word;
+    }
+    .style-1::-webkit-scrollbar-thumb {
+        background-color: #000000;
+    }
+    .ahihi{
+        height:270px;
+        width:100%;
+        /*border:1px solid black;*/
+        overflow:auto;
+    }
+
+</style>
+<div class="page-header">
+    <div class="page-block">
+        <div class="row align-items-center">
+            <div class="col-md-8">
+                <div class="page-header-title">
+                    <h4 class="m-b-10">Quản lý nhân viên</h4>
+                </div>
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="index.html">
+                            <i class="feather icon-home"></i>
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a href="#!">Quản lý nhân viên</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="pcoded-inner-content">
+    <div class="main-body">
+
+<div class="page-wrapper">
+    <div class="page-body">
+        <!-- [ page content ] start -->
+        <div class="row"  style="font-size: 14px;">
+            <!-- site Analytics card start -->
+            <div class="col-lg-12 col-md-12">
+                <div class="card">
+                    <div class="card-header font-text font-faauto">
+                        <h2>Quản Lý Nhân Viên</h2>
+                        <p style=""><?php $this->flashSession->output(); ?></p>
+                    </div>
+                     <div class="card-block ">
+                        <form action="" method="get">
+                            <div class="form-group row">
+                                <div class="col-md-4">
+                                    <div class="row">
+                                        <div class="col-md-4"><label class="lineheight font-text">Mã NV:</label></div>
+                                        <div class="col-md-8"><input type="text" class="form-control border-radius"  placeholder="Nhập mã nhân viên..."  value="<?php echo $code ? $code :'' ?>" name="txtcode"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="row">
+                                        <div class="col-md-4"><label class="lineheight font-text">Tên NV:</label></div>
+                                        <div class="col-md-8"><input type="text" class="form-control border-radius"  placeholder="Nhập tên nhân viên..." value="<?php echo $fullname ? $fullname :'' ?>" name="txtfullname"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="row">
+                                        <div class="col-md-4"><label class="lineheight font-text" style="margin-left: 50px; line-height: 40px;">SĐT:</label></div>
+                                        <div class="col-md-8"><input type="text" class="form-control border-radius"  placeholder="Nhập số điện thoại..."  value="<?php echo $phone ? $phone :'' ?>" name="txtphone"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-4">
+                                    <div class="row">
+                                        <div class="col-md-4"><label class="lineheight font-text">Địa chỉ:</label></div>
+                                        <div class="col-md-8"><input type="text" class="form-control border-radius"  placeholder="Nhập địa chỉ..."  value="<?php echo $address ? $address :'' ?>" name="txtaddress"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="row">
+                                        <div class="col-md-4"><label class="lineheight font-text">Email:</label></div>
+                                        <div class="col-md-8"><input type="text" class="form-control border-radius"  placeholder="Nhập email..."  value="<?php echo $email ? $email :'' ?>" name="txtemail"></div>
+                                    </div>
+                                </div>
+<!--                                <div class="col-md-4">-->
+<!--                                    <div class="row">-->
+<!--                                        <div class="col-md-4"><label>Sách viết</label></div>-->
+<!--                                        <div class="col-md-8"><input type="text" class="form-control" value="--><?php //echo $book ? $book :'' ?><!--" name="txtbook"></div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+                                <div class="col-md-4">
+                                    <div class="row">
+                                        <div class="col-md-4"></div>
+                                        <div class="col-md-8"><button type="submit" class="btn btn-primary btn-sm" style="float:right;">Tìm kiếm</button></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                <div class="card-header">
+                    <a href="<?php echo $this->url->get('teacher/create')?>" class ="btn btn-warning m-b-0 ">Thêm nhân viên</a>
+                    <span  class="font-we6 font-da-cursive"  style="float: right; padding-top: 15px;">Tổng số nhân viên: <strong><?php echo count($paginate) ?></strong>
+                    </span>
+                </div>
+                <!-- Input Grid card end -->
+                    <div class="card-block">
+                        <div class="dt-responsive">
+                            <?php if (count($teachers) > '0') { ?>
+                            <table id="simpletable" class="table table-striped table-bordered nowrap">
+                                <thead>
+                                    <tr>
+                                        <th>STT</th>
+                                        <th>Mã NV</th>
+                                        <th>Tên NV</th>
+                                        <th>SĐT</th>
+                                        <th>Email</th>
+                                        <th>Địa chỉ</th>
+                                        <th>Ngày tạo</th>
+                                        <th>Tùy chọn</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody id="myTable">
+
+                                    <?php foreach ($teachers as $key=>$value) {?>
+                                        <tr>
+                                            <th scope="row" style="text-align: center"><?php echo ($off)+($key+1)?></th>
+                                            <td><p><?php echo $value->code ?></p></td>
+                                            <td><p><?php echo $value->fullname ?></p></td>
+                                            <td><p style="font-size: 14px"><?php echo $value->phone ?></p></td>
+                                            <td><p style="font-size: 14px"><?php echo $value->email ?></p></td>
+                                            <td><p><?php echo $value->address ?></p></td>
+                                            <td><?php echo
+                                                date_format( new DateTime($value->created_at), 'd/m/Y' ) ?></td>
+                                            <td>
+                                                <div class="row">
+                                                <ul style="margin-left: 20px;margin-right: 5px;">
+                                                 <!--    <li>
+                                                        <a class="btn btn-primary icon-table btn-sm" id="athea"
+                                                           geturl1="<?php echo $this->url->get('teacher/changeActive/' . $value->id)?>" data-teacher="<?php echo $value->id?>">
+                                                            <i id="checkteacher<?php echo $value->id ?>" class=" <?php echo $value->publish == 1 ? "fa fa-eye" : 'fa fa-eye-slash' ?>" style="font-size: 19px;"></i>
+                                                        </a>
+                                                    </li> -->
+                                                </ul>
+                                                <ul>
+                                                <a href="<?php echo $this->url->get('teacher/edit/'. $value->id) ?>" class="btn btn-warning btn-sm">
+                                                    <i class="ion-ios-compose" style="font-size: 19px;"></i>
+                                                </a>
+                                                <a id="lknn" class="btn btn-primary btn-sm icon-table"data-toggle="modal" data-target="#<?php echo $value->id ?>"
+                                                   geturlbook="<?php echo $this->url->get('teacher/bookTeacher/' . $value->id)?>" data-book="<?php echo $value->id?>" title="">
+                                                    <i class="ion-navicon-round" style="font-size: 19px;"></i>
+                                                </a>
+                                                <a hidden class="btn btn-danger btn-sm"  href="teacher/delete/<?php echo $value->id ?>"
+                                                   onclick="return confirm('Are you sure?')"><i class="ion-ios-trash" style="font-size: 19px;"></i>
+                                                </a>
+                                                <a hidden id="xoamodel" href="" class="btn btn-danger btn-sm" data-href="teacher/deleteModel/<?php echo $value->id ?>" data-toggle="modal"
+                                                   data-target="#confirm-delete"><i class="ion-ios-trash" style="font-size: 19px;"></i></a>
+
+                                                </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    <?php } ?>
+
+                                </tbody>
+
+                            </table>
+                            <?php }else { ?>
+                                <p style="font-size: 14px"><?php echo "Không tìm thấy dữ liệu" ; ?></p>
+                            <?php } ?>
+                            <?php foreach ($teachers as $key=>$value) {?>
+                                <div class="modal fade" id="download<?php echo $value->id ?>" role="dialog">
+                                    <div class="modal-dialog">
+                                        <!-- Modal content-->
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title">Bạn có Chắc chắn muốn thay đổi không?</h5>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                                                <button type="button" class="btn btn-primary" id="dongy">Yes</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            <?php } ?>
+                            <?php foreach ($teachers as $key=>$value) {?>
+                                <div class="modal fade" id="<?php echo $value->id?>" role="dialog">
+                                <div class="modal-dialog modal-lg">
+                                    <!-- Modal content-->
+                                    <div class="modal-content">
+                                        <div class="modal-header font-text text-label-center  font-faauto">
+                                                <h4 class="modal-title" style="    margin-left: 25%;">Thông Tin Chi Tiết Nhân Viên</h4>
+                                            <p style="    border-radius: 2rem;background-color: red;" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </p>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="row">
+                                                        <div class="col-md-5 font-text ">
+                                                            <b>Nhân viên : </b>
+                                                        </div>
+                                                        <div class="col-md-7"><p style="font-size: 14px"><?php echo $value->fullname ?></p></div>
+                                                        <div class="col-md-5 font-text ">
+                                                            <b>Mã nhân viên : </b>
+                                                        </div>
+                                                        <div class="col-md-7 "><p style="font-size: 14px"><?php echo $value->code ?></p></div>
+                                                        <div class="col-md-5 font-text " style="margin-bottom: 15px">
+                                                            <b>Email : </b>
+                                                        </div>
+                                                        <div class="col-md-7 "><p style="font-size: 14px"><?php echo $value->email ?></p></div>
+                                                        <div class="col-md-5 font-text " >
+                                                            <b>Link fb: </b>
+                                                        </div>
+                                                        <div class="col-md-7"><p style="font-size: 14px"><?php echo $value->facebook ?></p></div>
+                                                        <div class="col-md-5 font-text " style="margin-top: 12px;">
+                                                            <b>Link youtube : </b>
+                                                        </div>
+                                                        <div class="col-md-7" style="margin-top: 12px;"><p style="font-size: 14px"><?php echo $value->youtube_chanel ?></p></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="row">
+                                                        <div class="col-md-4 font-text ">
+                                                            <b>SĐT : </b>
+                                                        </div>
+                                                        <div class="col-md-8"><p style="font-size: 14px"><?php echo $value->phone ?></p></div>
+                                                        <div class="col-md-4 font-text ">
+                                                            <b>Địa chỉ : </b>
+                                                        </div>
+                                                        <div class="col-md-8"><p style="font-size: 14px"><?php echo $value->address ?></p></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <h5 class="font-text " style="margin-left: 15px; margin-top: 15px">Sách đã thêm</h5>
+                                                <div class="ahihi">
+                                                    <table id="simpletable" class="hai table table-striped table-bordered nowrap style-1" style="width: 95%; margin: 20px;">
+                                                    <thead style="background: #f0f1f2">
+                                                        <tr>
+                                                            <th style="width: 10%">STT</th>
+                                                            <th style="width: 80%">Tên sách</th>
+                                                            <!-- <th>Lớp</th> -->
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="listitembook">
+                                                        <!-- content viết file js hai.js -->
+                                                    </tbody>
+                                                </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-primary  waves-effect " data-dismiss="modal">Đóng</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <?php } ?>
+                            <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            Bạn có chắc chắn muốn xóa không?
+                                        </div>
+<!--                                        <div class="modal-body">-->
+<!--                                            ...-->
+<!--                                        </div>-->
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                                            <a class="btn btn-danger btn-ok">Delete</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-12 col-md-5">
+                            <div class="dataTables_info" id="footer-search_info" role="status" aria-live="polite">
+
+<!--                                --><?php //echo $paginator->getTotalItems(); ?><!-- found.-->
+<!---->
+<!--                                Showing-->
+<!--                                --><?php //echo $paginator->getCurrentPageFirstItem(); ?>
+<!--                                - entries-->
+<!--                                --><?php //echo $paginator->getCurrentPageLastItem(); ?><!--.-->
+                            </div>
+                        </div>
+<!--                        --><?php //echo 'Bạn đang ở trang ', $page->current, ' / ', $page->total_pages; ?>
+                        <div style="float: right">
+                            <?php
+//                                echo $paginator;
+                            ?>
+                                <ul class="pagination">
+                                    <?php if ($paginator->getPrevUrl()): ?>
+                                        <li class="paginate_button page-item "><a class="page-link" data-dt-idx="2" tabindex="0" href="<?php echo $paginator->getPrevUrl(); ?>">&laquo; Previous</a></li>
+                                    <?php endif; ?>
+
+                                    <?php foreach ($paginator->getPages() as $page): ?>
+                                        <?php if ($page['url']): ?>
+                                            <li class="paginate_button page-item <?php echo $page['isCurrent'] ? 'active' : ''; ?>" >
+                                                <a href="<?php echo $page['url']; ?>" class="page-link" data-dt-idx="2" tabindex="0"><?php echo $page['num']; ?></a>
+                                            </li>
+                                        <?php else: ?>
+                                            <li class="disabled paginate_button page-item "><span><?php echo $page['num']; ?></span></li>
+                                        <?php endif; ?>
+                                    <?php endforeach; ?>
+
+                                    <?php if ($paginator->getNextUrl()): ?>
+                                        <li class="paginate_button page-item "><a class="page-link" data-dt-idx="2" tabindex="0" href="<?php echo $paginator->getNextUrl(); ?>">Next &raquo;</a></li>
+                                    <?php endif; ?>
+                                </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    </div>
+</div>

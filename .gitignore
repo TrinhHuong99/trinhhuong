@@ -1,0 +1,21 @@
+# Created by .ignore support plugin (hsz.mobi)
+vendor/
+*.bak
+.htaccess
+client_secret_*.*
+config.php
+codeception.yml
+.vscode/
+.idea/
+.phalcon/
+composer.lock
+app/cache/
+public/temp/
+public/files/
+public/upload
+public/download/
+public/testbootstrap.php
+phpunit.xml.dist
+*.log
+
+

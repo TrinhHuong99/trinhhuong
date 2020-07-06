@@ -1,0 +1,185 @@
+<div class="page-header">
+    <div class="page-block">
+        <div class="row align-items-center">
+            <div class="col-md-8">
+                <div class="page-header-title">
+                    <h4 class="m-b-10">HOCMAI</h4>
+                </div>
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <?php echo $this->tag->linkTo(['', '<i class="feather icon-home"></i>']); ?>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a>Ca trực</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="pcoded-inner-content">
+    <div class="main-body">
+        <div class="page-wrapper">
+            <div class="page-body">
+                <!-- [ page content ] start -->
+                <div class="row">
+                    <!-- [ Full-calendar ] start -->
+                    <div class="col-sm-12">
+                        <div class="card fullcalendar-card">
+                            <div class="card-header">
+                                <h5>Ca trực</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        <form action="" method="post" accept-charset="utf-8">
+                                            <div class="row">
+                                                <div class="col-md-4 m-b-15">
+                                                    <?php echo $this->tag->select([
+                                                        'grade',
+                                                        $grade,
+                                                        'useEmpty'   => true,
+                                                        'emptyValue' => '-1',
+                                                        'emptyText'  => '[-- Chọn khối --]',
+                                                        'class' => 'custom-select'
+                                                    ]); ?>
+                                                </div>
+                                                <div class="col-md-4 m-b-15">
+                                                    <?php echo $this->tag->select([
+                                                        'subject',
+                                                        $subject,
+                                                        'useEmpty'   => true,
+                                                        'emptyValue' => '-1',
+                                                        'emptyText'  => '[-- Chọn môn --]',
+                                                        'class' => 'custom-select'
+                                                    ]); ?>
+                                                </div>
+                                            </div>
+                                            <button class="btn btn-sm btn-primary" type="submit">Tìm kiếm</button>
+                                            <button class="btn btn-sm btn-danger" type="submit" name="reset" value="clear">Hủy tìm kiếm</button>
+                                        </form>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="d-flex align-item-center m-b-15">
+                                            <div class="background_box close"></div>
+                                            <div class="text_box">Ca trực đã kết thúc</div>
+                                        </div>
+                                        <div class="d-flex align-item-center m-b-15">
+                                            <div class="background_box ctv_"></div>
+                                            <div class="text_box">Ca có CTV trực</div>
+                                        </div>
+                                        <div class="d-flex align-item-center m-b-15">
+                                            <div class="background_box"></div>
+                                            <div class="text_box">Ca chưa có người trực</div>
+                                        </div>
+                                    </div>
+                                </div>  
+                                <div id="calendar" class="calendar" data-event="<?php echo $this->url->get('admin/calendar/event/') ?>"></div>
+                            </div>
+                        </div>
+                    </div>
+                <!-- [ page content ] end -->
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="Modal_Add_Role" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form action="<?php echo $this->url->get('admin/role/create'); ?>" method="post" class="form form-create ajax_form" data-redirect="<?php echo $this->url->get('role/'); ?>?rolename=<?php echo $rolename ?>">
+                <div class="modal-header">
+                    <h4 class="modal-title">Tạo vai trò mới</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="error alert"></div>
+                    <div class="form-group">
+                        <label for="">Tên vai trò <font color="red">*</font></label>
+                        <input type="text" autocomplete="off" name="name" class="form-control" placeholder="Tên vai trò">
+                    </div>
+                    <div class="">
+                        <label for="">Mô tả vai trò</label>
+                        <textarea class="form-control" name="desc" cols="30" rows="6" placeholder="Mô tả vai trò"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Hủy bỏ</button>
+                    <button type="submit" name="create" class="btn btn-primary btn-sm">Thêm mới</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="RolePermission_Add_Modal" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form action="<?php echo $this->url->get('admin/role/addUser'); ?>" method="post" class="form form-create ajax_form" data-load="true">
+                <div class="modal-header">
+                    <h4 class="modal-title">Gắn vai trò cho người dùng</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="error alert"></div>
+                    <div class="form-group relative">
+                        <label for="">Username người dùng <font color="red">*</font></label>
+                        <select class="js-data-example-ajax col-sm-12" data-ajax--url="<?php echo $this->url->get('admin/users/getUser') ?>" name="username">
+                            <option value="" selected="selected">Username người dùng</option>
+                        </select>
+                        <input type="hidden" name="rolename" value="<?php echo $rolename ?>">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Hủy bỏ</button>
+                    <button type="submit" name="create" class="btn btn-primary btn-sm">Gắn vai trò</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<style type="text/css" media="screen">
+.fc-time-grid-event.fc-event.fc-start.fc-end.disable,
+.background_box.close {
+    background-color: #797979;
+    border-color: #797979;
+}
+.fc-time-grid-event.fc-event.fc-start.fc-end.open,
+.background_box.ctv_ {
+    background-color: #027102;
+    border-color: #027102;
+}
+.background_box{
+    width: 22px;
+    height: 22px;
+    margin-right: 10px;
+    background-color: #3788d8
+}
+#calendar {
+  max-width: 1100px;
+  margin: 40px auto;
+}
+</style>
+<script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function() {
+  var calendarEl = document.getElementById('calendar');
+
+  var calendar = new FullCalendar.Calendar(calendarEl, {
+    timeZone: 'UTC',
+    themeSystem: 'bootstrap',
+    headerToolbar: {
+      left: 'prev,next today',
+      center: 'title',
+      right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth'
+    },
+    weekNumbers: true,
+    dayMaxEvents: true, // allow "more" link when too many events
+    events: 'https://fullcalendar.io/demo-events.json'
+  });
+
+  calendar.render();
+});
+</script>

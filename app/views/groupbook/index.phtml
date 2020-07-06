@@ -1,0 +1,168 @@
+<div class="page-header">
+    <div class="page-block">
+        <div class="row align-items-center">
+            <div class="col-md-8">
+                <div class="page-header-title">
+                    <h4 class="m-b-10">Quản Lý Loại Sách</h4>
+                </div>
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="index.html">
+                            <i class="feather icon-home"></i>
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a href="#!">Quản  Lý Loại Sách</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="pcoded-inner-content">
+    <div class="main-body">
+
+    <div class="page-wrapper">
+        <div class="page-body">
+            <!-- [ page content ] start -->
+            <div class="row">
+
+                <!-- site Analytics card start -->
+                
+                <div class="col-lg-12 col-md-12">
+                    <div class="card">
+                        <div class="card-header font-text font-faauto ">
+                            <h2>Quản Lý Loại Sách</h2>
+                            <p style="font-size: 20px"><?php $this->flashSession->output(); ?></p>
+                        </div>
+                        <div class="card-block ">
+                            <?php echo $this->tag->form(["","autocomplete" => "off",
+                                "class" => "form-horizontal",
+                                "method" => "get",
+                                "enctype" => "multipart/form-data"]); ?>
+
+                                <div class="form-group row">
+                                    <div class="col-sm-4">
+                                        <div class="row">
+                                            <label class="col-sm-5 col-form-label font-text  text-label-right">Mã loại sách:</label>
+                                            <div class="col-sm-7">
+                                                <input type="text" placeholder="Nhập mã ...." class="form-control border-radius" name="code" value="<?php echo $code ? $code :'' ?>" >
+                                                <span class="messages"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="row">
+                                            <label class="col-sm-5 col-form-label font-text  text-label-right">Tên loại sách:</label>
+                                            <div class="col-sm-7">
+                                                <input type="text" placeholder="Nhập loại sách ...." class="form-control border-radius" name="name" value="<?php echo $name ? $name :'' ?>" >
+                                                <span class="messages"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="pull-right" >
+                                            <input type="submit" class="btn btn-primary form-control" value="Tìm Kiếm">
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        <div> 
+                            <a href="<?php echo $this->url->get('groupbook/create')?>" class ="btn btn-warning m-b-0 ">Thêm loại sách</a>
+                            <!-- <div> -->
+                                <label  class="font-we6 font-da-cursive"  style="float: right; padding-top: 15px;">Tổng số Loại sách: <?= $countuser ?></label>
+                                <!-- </div> -->
+                            </div>
+                        </div>
+                        <div class="card-block">
+                            <?php if(count($groupbooks)  <= '0') {?>
+
+                                <tr>
+                                   <label class="col-sm-12" style="text-align: center;">Không có kết quả tìm kiếm</label>
+
+                               </tr>
+                           <?php } else {?>
+                            <div class="table-responsive dt-responsive">
+                                <div id="simpletable_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                                    <div class="row">
+                                        <div class="col-xs-12 col-md-7 col-lg-12">
+                                            <table id="dom-table" class="table table-striped table-bordered nowrap dataTable icon-list-demo" role="grid" aria-describedby="simpletable_info">
+                                                <thead>
+                                                    <tr role="row">
+                                                        <th class="sorting_disabled" rowspan="1" colspan="1"> STT </th>
+                                                        <th class="sorting_disabled" rowspan="1" colspan="1">Mã loại sách</th>
+                                                        <th class="sorting_disabled" rowspan="1" colspan="1">Tên loại sách</th>
+                                                        <th class="sorting_disabled" rowspan="1" colspan="3">Tùy Chọn</th>
+
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+
+                                                   <?php foreach($groupbooks as $key=>$value) 
+                                                   { ?>
+                                                    <tr>
+                                                        <td><?php echo ($off) + ($key + 1) ?></td>
+                                                        <td><?php echo $value->code?></td>
+                                                        <td><?php echo $value->name?></td>
+
+                                                        <td>
+                                                            <a class="btn btn-primary icon-table" href="<?= $this->url->get('groupbook/edit/'.$value->id)?> " title="">
+                                                                <span class='icofont icofont-ui-edit'></span>
+                                                            </a>
+                                                            <a  href="<?= $this->url->get('groupbook/delete/'.$value->id)?> " class="btn btn-danger icon-table" onclick="return confirm(' bạn có chắc chắn muốn xóa?');"  title="">
+                                                                <span class='icofont icofont-ui-delete'></span>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                <?php } ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php }?>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-5">
+                                <div class="dataTables_info" id="footer-search_info" role="status" aria-live="polite">
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-7">
+                                <div class="dataTables_paginate paging_simple_numbers" id="footer-search_paginate">
+                                    <?php if ($paginator->getNumPages() > 1): ?>
+                                        <ul class="pagination">
+                                            <?php if ($paginator->getPrevUrl()): ?>
+                                                <li class="paginate_button page-item previous" id="footer-search_previous"><a aria-controls="footer-search" data-dt-idx="0" tabindex="0" class="page-link" href="<?php echo $paginator->getPrevUrl(); ?>">&laquo; Previous</a></li>
+                                            <?php endif; ?>
+
+                                            <?php foreach ($paginator->getPages() as $page): ?>
+                                                <?php if ($page['url']): ?>
+                                                    <li class="paginate_button page-item <?php echo $page['isCurrent'] ? 'active' : ''; ?>">
+                                                        <a aria-controls="footer-search" data-dt-idx="<?= $key + 1?>" tabindex="0" class="page-link" href="<?php echo $page['url']; ?>"><?php echo $page['num']; ?></a>
+                                                    </li>
+                                                    <?php else: ?>
+                                                        <a aria-controls="footer-search" data-dt-idx="<?= $key +1?>" tabindex="0" class="page-link" href="<?php echo $page['url']; ?>"><?php echo $page['num']; ?></a>
+                                                    <?php endif; ?>
+                                                <?php endforeach; ?>
+
+                                                <?php if ($paginator->getNextUrl()): ?>
+                                                    <li class="paginate_button page-item next" id="footer-search_next"><a aria-controls="footer-search" data-dt-idx="7" tabindex="0" class="page-link" href="<?php echo $paginator->getNextUrl(); ?>">Next &raquo;</a></li>
+                                                <?php endif; ?>
+                                            </ul>
+                                        <?php endif; ?>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>  
+            </div>
+            <!-- site Analytics card end -->
+        </div>
+
+        <!-- [ page content ] end -->
+    </div>
+    
+    </div>
+</div>

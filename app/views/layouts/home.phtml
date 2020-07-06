@@ -1,0 +1,523 @@
+<!-- [ Pre-loader ] start -->
+<div class="loader-bg">
+    <div class="loader-bar"></div>
+</div>
+<!-- [ Pre-loader ] end -->
+<div id="pcoded" class="pcoded">
+    <div class="pcoded-overlay-box"></div>
+    <div class="pcoded-container navbar-wrapper">
+        <!-- [ Header ] start -->
+        <nav class="navbar header-navbar pcoded-header pod-menuhead">
+            <div class="navbar-wrapper">
+                <div class="navbar-logo">
+                    <a class="mobile-menu waves-effect waves-light" id="mobile-collapse" href="#!">
+                        <i class="feather icon-toggle-right"></i>
+                    </a>
+                    <a href="index.html">
+                        <img class="img-fluid" src="<?php echo $this->url->getStatic('/assets/images/logo-blue.png') ?>" alt="Theme-Logo" />
+                    </a>
+                    <a class="mobile-options waves-effect waves-light">
+                        <i class="feather icon-more-horizontal"></i>
+                    </a>
+                </div>
+                <div class="navbar-container container-fluid">
+                    <ul class="nav-left">
+                        <li class="header-search">
+                            <div class="main-search morphsearch-search">
+                                <div class="input-group">
+                                    <span class="input-group-prepend search-close">
+										<i class="feather icon-x input-group-text"></i>
+									</span>
+                                    <!-- <input type="text" class="form-control" placeholder="Enter Keyword"> -->
+                                   <!--  <span class="input-group-append search-btn">
+										<i class="feather icon-search input-group-text"></i>
+									</span> -->
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="#!" onclick="javascript:toggleFullScreen()" class="waves-effect waves-light">
+                                <i class="full-screen feather icon-maximize"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav-right">
+                        <li class="user-profile header-notification">
+                            <div class="dropdown-primary dropdown">
+                                <div class="dropdown-toggle" data-toggle="dropdown">
+                                    <img src="<?php echo $this->url->getStatic('/assets/images/avatar-4.jpg') ?>" class="img-radius" alt="User-Profile-Image">
+                                    <span> <?= $this->session->get('user_fullname') ?></span>
+                                    <i class="feather icon-chevron-down"></i>
+                                </div>
+                                <ul class="show-notification profile-notification dropdown-menu" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
+                                    <li>
+                                        <a href="#!">
+                                            <i class="feather icon-settings"></i> Settings
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="user-profile.html">
+                                            <i class="feather icon-user"></i> Profile
+                                        </a>
+                                    </li>
+                                   <!--  <li>
+                                        <a href="email-inbox.html">
+                                            <i class="feather icon-mail"></i> My Messages
+                                        </a>
+                                    </li> -->
+                                  <!--   <li>
+                                        <a href="auth-lock-screen.html">
+                                            <i class="feather icon-lock"></i> Lock Screen
+                                        </a>
+                                    </li> -->
+                                    <li>
+                                        <a href="<?php echo $this->url->get('login/logout')?>">
+                                            <i class="feather icon-log-out"></i> Logout
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- [ Header ] end -->
+
+        <!-- [ chat user list ] start -->
+        <div id="sidebar" class="users p-chat-user showChat">
+            <div class="had-container">
+                <div class="p-fixed users-main">
+                    <div class="user-box">
+                        <div class="chat-search-box">
+                            <a class="back_friendlist">
+                                <i class="feather icon-x"></i>
+                            </a>
+                            <div class="right-icon-control">
+                                <form class="form-material">
+                                    <div class="form-group form-primary">
+                                        <input type="text" name="footer-email" class="form-control" id="search-friends" required="">
+                                        <span class="form-bar"></span>
+                                        <label class="float-label">
+                                            <i class="feather icon-search m-r-10"></i>Search Friend
+                                        </label>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="main-friend-list">
+                            <div class="media userlist-box waves-effect waves-light" data-id="1" data-status="online" data-username="Josephin Doe">
+                                <a class="media-left" href="#!">
+                                    <img class="media-object img-radius img-radius" src="<?php echo $this->url->getStatic('/assets/images/avatar-3.jpg') ?>" alt="Generic placeholder image ">
+                                    <div class="live-status bg-success"></div>
+                                </a>
+                                <div class="media-body">
+                                    <div class="chat-header">Josephin Doe</div>
+                                </div>
+                            </div>
+                            <div class="media userlist-box waves-effect waves-light" data-id="2" data-status="online" data-username="Lary Doe">
+                                <a class="media-left" href="#!">
+                                    <img class="media-object img-radius" src="<?php echo $this->url->getStatic('/assets/images/avatar-2.jpg') ?>" alt="Generic placeholder image">
+                                    <div class="live-status bg-success"></div>
+                                </a>
+                                <div class="media-body">
+                                    <div class="f-13 chat-header">Lary Doe</div>
+                                </div>
+                            </div>
+                            <div class="media userlist-box waves-effect waves-light" data-id="3" data-status="online" data-username="Alice">
+                                <a class="media-left" href="#!">
+                                    <img class="media-object img-radius" src="<?php echo $this->url->getStatic('/assets/images/avatar-4.jpg') ?>" alt="Generic placeholder image">
+                                    <div class="live-status bg-success"></div>
+                                </a>
+                                <div class="media-body">
+                                    <div class="f-13 chat-header">Alice</div>
+                                </div>
+                            </div>
+                            <div class="media userlist-box waves-effect waves-light" data-id="4" data-status="offline" data-username="Alia">
+                                <a class="media-left" href="#!">
+                                    <img class="media-object img-radius" src="<?php echo $this->url->getStatic('/assets/images/avatar-3.jpg') ?>" alt="Generic placeholder image">
+                                    <div class="live-status bg-default"></div>
+                                </a>
+                                <div class="media-body">
+                                    <div class="f-13 chat-header">Alia<small class="d-block text-muted">10 min ago</small></div>
+                                </div>
+                            </div>
+                            <div class="media userlist-box waves-effect waves-light" data-id="5" data-status="offline" data-username="Suzen">
+                                <a class="media-left" href="#!">
+                                    <img class="media-object img-radius" src="<?php echo $this->url->getStatic('/assets/images/avatar-2.jpg') ?>" alt="Generic placeholder image">
+                                    <div class="live-status bg-default"></div>
+                                </a>
+                                <div class="media-body">
+                                    <div class="f-13 chat-header">Suzen<small class="d-block text-muted">15 min ago</small></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- [ chat user list ] end -->
+
+        <!-- [ chat message ] start -->
+        <div class="showChat_inner">
+            <div class="media chat-inner-header">
+                <a class="back_chatBox">
+                    <i class="feather icon-x"></i> Josephin Doe
+                </a>
+            </div>
+            <div class="main-friend-chat">
+                <div class="media chat-messages">
+                    <a class="media-left photo-table" href="#!">
+                        <img class="media-object img-radius img-radius m-t-5" src="<?php echo $this->url->getStatic('/assets/images/avatar-2.jpg') ?>" alt="Generic placeholder image">
+                    </a>
+                    <div class="media-body chat-menu-content">
+                        <div class="">
+                            <p class="chat-cont">I'm just looking around. Will you tell me something about yourself?</p>
+                        </div>
+                        <p class="chat-time">8:20 a.m.</p>
+                    </div>
+                </div>
+                <div class="media chat-messages">
+                    <div class="media-body chat-menu-reply">
+                        <div class="">
+                            <p class="chat-cont">Ohh! very nice</p>
+                        </div>
+                        <p class="chat-time">8:22 a.m.</p>
+                    </div>
+                </div>
+                <div class="media chat-messages">
+                    <a class="media-left photo-table" href="#!">
+                        <img class="media-object img-radius img-radius m-t-5" src="<?php echo $this->url->getStatic('/assets/images/avatar-2.jpg') ?>" alt="Generic placeholder image">
+                    </a>
+                    <div class="media-body chat-menu-content">
+                        <div class="">
+                            <p class="chat-cont">can you come with me?</p>
+                        </div>
+                        <p class="chat-time">8:20 a.m.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="chat-reply-box">
+                <div class="right-icon-control">
+                    <form class="form-material">
+                        <div class="form-group form-primary">
+                            <input type="text" name="footer-email" class="form-control" required="">
+                            <span class="form-bar"></span>
+                            <label class="float-label">
+                                <i class="feather icon-search m-r-10"></i>Share Your Thoughts
+                            </label>
+                        </div>
+                    </form>
+                    <div class="form-icon ">
+                        <button class="btn btn-success btn-icon  waves-effect waves-light">
+                            <i class="feather icon-message-circle"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- [ chat message ] end -->
+        <div class="pcoded-main-container">
+            <div class="pcoded-wrapper">
+                <!-- [ navigation menu ] start -->
+                <nav class="pcoded-navbar pod-menu">
+                    <div class="pcoded-inner-navbar main-menu">
+                        <div class="">
+                            <!-- <div class="main-menu-header">
+                                <img class="img-menu-user img-radius" src="<?php echo $this->url->getStatic('/assets/images/avatar-4.jpg') ?>" alt="User-Profile-Image">
+                                <div class="user-details">
+                                    <p id="more-details"><?= $this->session->get('user_fullname') ?><i class="feather icon-chevron-down m-l-10"></i></p>
+                                </div>
+                            </div>
+                            <div class="main-menu-content">
+                                <ul>
+                                    <li class="more-details">
+                                        <a href="user-profile.html">
+                                            <i class="feather icon-user"></i>View Profile
+                                        </a>
+                                        <a href="#!">
+                                            <i class="feather icon-settings"></i>Settings
+                                        </a>
+                                        <a href="<?php echo $this->url->get('login/logout')?>">
+                                            <i class="feather icon-log-out"></i>Logout
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div> -->
+                        <?php
+                        function getCurURL()
+                        {
+                            if (isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] == "on") {
+                                $pageURL = "";
+                            } else {
+                                $pageURL = '';
+                            }
+
+                            if (isset($_SERVER["SERVER_PORT"]) && $_SERVER["SERVER_PORT"] != "80") {
+                                $pageURL .=   $_SERVER["REQUEST_URI"];
+                            } else {
+                                $pageURL .= $_SERVER["REQUEST_URI"];
+                            }
+
+                            return $pageURL;
+                        }
+                        ?>
+                        <?php
+//                        echo getCurURL();
+                        ?>
+                        <ul class="pcoded-item pcoded-left-item">
+                            <li class="<?php echo ($this->router->getControllerName() == '') ? 'active' : '' ?>">
+                                <a href="/bookstore" class="waves-effect waves-dark">
+                                    <span class="pcoded-micon"><i class="feather icon-home"></i></span>
+                                    <span class="pcoded-mtext">Dashboard</span>
+                                </a>
+                            </li>
+                            <li class="pcoded-hasmenu <?php echo ($this->router->getControllerName() == 'teacher') ? 'active' : '' ?>">
+                                <a href="javascript: void(0)" class="waves-effect waves-dark">
+									<span class="pcoded-micon">
+                                        <i class="ion-ios-person"></i>
+									</span>
+                                    <span class="pcoded-mtext">Quản Lý Nhân Viên</span>
+                                </a>
+                                <ul class="pcoded-submenu">
+
+                                    <li class="<?php echo (($this->router->getActionName() == 'index' && $this->router->getControllername() == 'contact') ? 'active':'') ?>">
+                                        <a href="<?php echo $this->url->get('contact/index') ?>" class="waves-effect waves-dark">
+                                            <span class="pcoded-mtext"> Loại Sách </span>
+                                        </a>
+                                    </li>
+                                    <li class="<?php echo (($this->router->getActionName() == 'index' && $this->router->getControllername() == 'teacher') ? 'active':'') ?>">
+                                        <a href="<?php echo $this->url->get('teacher/index') ?>" class="waves-effect waves-dark">
+                                            <span class="pcoded-mtext">Danh Sách Nhân Viên</span>
+                                        </a>
+                                    </li>
+                                    <li class="<?php echo (($this->router->getActionName() == 'catruc' && $this->router->getControllername() == 'teacher') ? 'active':'') ?>">
+                                        <a href="<?php echo $this->url->get('teacher/catruc') ?>" class="waves-effect waves-dark">
+                                            <span class="pcoded-mtext">Ca Trực Nhân Viên</span>
+                                        </a>
+                                    </li>
+                                   
+                                </ul>
+                            </li>
+                            <li class="pcoded-hasmenu <?php echo ($this->router->getControllerName() == 'book') ? 'active' : '' ?>">
+                                <a href="javascript: void(0)" class="waves-effect waves-dark">
+									<span class="pcoded-micon">
+										<i class="ion-ios-copy-outline"></i>
+									</span>
+                                    <span class="pcoded-mtext">Quản Lý  Sách</span>
+                                </a>
+                                <ul class="pcoded-submenu">
+
+                                    <li class="<?php echo (($this->router->getActionName() == 'index' && $this->router->getControllername() == 'groupbook') ? 'active':'') ?>">
+                                        <a href="<?php echo $this->url->get('groupbook/index') ?>" class="waves-effect waves-dark">
+                                            <span class="pcoded-mtext"> Loại Sách </span>
+                                        </a>
+                                    </li>
+                                    <li class="<?php echo (($this->router->getActionName() == 'index' && $this->router->getControllername() == 'book') ? 'active':'') ?>">
+                                        <a href="<?php echo $this->url->get('book/index') ?>" class="waves-effect waves-dark">
+                                            <span class="pcoded-mtext">Danh Sách Sách </span>
+                                        </a>
+                                    </li>
+                                    <li class="<?php echo (($this->router->getActionName() == 'index' && $this->router->getControllername() == 'book') ? 'active':'') ?>">
+                                        <a href="<?php echo $this->url->get('book/index') ?>" class="waves-effect waves-dark">
+                                            <span class="pcoded-mtext">Sách bán chạy</span>
+                                        </a>
+                                    </li>
+                                   
+                                </ul>
+                            </li>
+
+                            <li class="pcoded-hasmenu <?php echo (($this->router->getControllername() == 'groupbook') ? 'active pcoded-trigger':'') ?>">
+                                <a href="javascript: void(0)" class="waves-effect waves-dark">
+                                    <span class="pcoded-micon">
+                                        <i class="ion-ios-copy-outline"></i>
+                                    </span>
+                                    <span class="pcoded-mtext">Quản Lý Báo Cáo</span>
+                                </a>
+                                <ul class="pcoded-submenu">
+
+                                    <li class="<?php echo (($this->router->getActionName() == 'index' && $this->router->getControllername() == 'contact') ? 'active':'') ?>">
+                                        <a href="<?php echo $this->url->get('contact/index') ?>" class="waves-effect waves-dark">
+                                            <span class="pcoded-mtext"> Loại Sách </span>
+                                        </a>
+                                    </li>
+                                    <li class="<?php echo (($this->router->getActionName() == 'index' && $this->router->getControllername() == 'contact') ? 'active':'') ?>">
+                                        <a href="<?php echo $this->url->get('contact/index') ?>" class="waves-effect waves-dark">
+                                            <span class="pcoded-mtext">Danh Sách Sách </span>
+                                        </a>
+                                    </li>
+                                    <li class="<?php echo (($this->router->getActionName() == 'create' && $this->router->getControllername() == 'contact') ? 'active':'') ?>">
+                                        <a href="<?php echo $this->url->get('contact/create') ?>" class="waves-effect waves-dark">
+                                            <span class="pcoded-mtext">Sách bán chạy</span>
+                                        </a>
+                                    </li>
+                                   
+                                </ul>
+                            </li>
+
+                            <li class=" pcoded-hasmenu <?php echo ($this->router->getControllerName() == 'user') ? 'active' : '' ?>">
+                                <a href="javascript: void(0)" class="waves-effect waves-dark" id="<?php echo $this->url->get('user')?>">
+									<span class="pcoded-micon">
+										<i class="ion-ios-people"></i>
+									</span>
+                                    <span class="pcoded-mtext">Quản Lý Tài Khoản</span>
+                                </a>
+                                <ul class="pcoded-submenu">
+
+                                    <li class="<?php echo (($this->router->getActionName() == 'index' && $this->router->getControllername() == 'contact') ? 'active':'') ?>">
+                                        <a href="<?php echo $this->url->get('contact/index') ?>" class="waves-effect waves-dark">
+                                            <span class="pcoded-mtext"> Loại Sách </span>
+                                        </a>
+                                    </li>
+                                    <li class="<?php echo (($this->router->getActionName() == 'index' && $this->router->getControllername() == 'user') ? 'active':'') ?>">
+                                        <a href="<?php echo $this->url->get('user/index') ?>" class="waves-effect waves-dark">
+                                            <span class="pcoded-mtext">Danh Sách Tài Khoản </span>
+                                        </a>
+                                    </li>
+                                    <li class="<?php echo (($this->router->getActionName() == 'create' && $this->router->getControllername() == 'contact') ? 'active':'') ?>">
+                                        <a href="<?php echo $this->url->get('contact/create') ?>" class="waves-effect waves-dark">
+                                            <span class="pcoded-mtext">Sách bán chạy</span>
+                                        </a>
+                                    </li>
+                                   
+                                </ul>
+                            </li>
+                            <li class="pcoded-hasmenu <?php echo (($this->router->getControllername() == 'contact') ? 'active pcoded-trigger':'') ?>">
+                                <a href="javascript: void(0)" class="waves-effect waves-dark">
+                                    <span class="pcoded-micon">
+                                        <i class="feather icon-edit"></i>
+                                    </span>
+                                    <span class="pcoded-mtext">Thanh Toán</span>
+                                </a>
+                                <ul class="pcoded-submenu">
+                                    <li class="<?php echo (($this->router->getActionName() == 'index' && $this->router->getControllername() == 'bills') ? 'active':'') ?>">
+                                        <a href="<?php echo $this->url->get('bills/index') ?>" class="waves-effect waves-dark">
+                                            <span class="pcoded-mtext">Hóa Đơn</span>
+                                        </a>
+                                    </li>
+                                    <li class="<?php echo (($this->router->getActionName() == 'create' && $this->router->getControllername() == 'orders') ? 'active':'') ?>">
+                                        <a href="<?php echo $this->url->get('orders/index') ?>" class="waves-effect waves-dark">
+                                            <span class="pcoded-mtext">Đặt Hàng</span>
+                                        </a>
+                                    </li>
+                                   
+                                </ul>
+                            </li>
+                            <li class="<?php echo ($this->router->getControllerName() == 'companyorders') ? 'active' : '' ?>">
+                                <a href="<?php echo $this->url->get('companyorders/index')?>" class="waves-effect waves-dark">
+                                    <span class="pcoded-micon">
+                                        <i class="ion-ios-people"></i>
+                                    </span>
+                                    <span class="pcoded-mtext">Công Ty Đặt Hàng</span>
+                                </a>
+                            </li>
+                            <!-- <li class="<?php echo ($this->router->getControllerName() == 'invalidmessage' || $this->router->getControllerName() == 'validmessage') ? 'active pcoded-hasmenu pcoded-trigger' : 'pcoded-hasmenu' ?>">
+                                <a href="javascript:void(0)" class="waves-effect waves-dark">
+									<span class="pcoded-micon">
+										<i class="ion-android-mail"></i>
+									</span>
+                                    <span class="pcoded-mtext">Quản lý sms</span>
+                                </a>
+                                <ul class="pcoded-submenu">
+                                    <li class="<?php echo ($this->router->getControllerName() == 'invalidmessage') ? 'active' : '' ?>">
+                                        <a href="<?php echo $this->url->get('invalidmessage')?>" class="waves-effect waves-dark">
+                                            <span class="pcoded-mtext">Tin nhắn không hợp lệ</span>
+                                        </a>
+                                    </li>
+                                    <li class="<?php echo ($this->router->getControllerName() == 'validmessage') ? 'active' : '' ?>">
+                                        <a href="<?php echo $this->url->get('validmessage')?>" class="waves-effect waves-dark">
+                                            <span class="pcoded-mtext">Tin nhắn hợp lệ</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li> -->
+                        </ul>
+                    </div>
+                </nav>
+
+                <!-- [ navigation menu ] end -->
+                <div class="pcoded-content">
+                    <!-- [ breadcrumb ] start -->
+<!--                    <div class="page-header">-->
+<!--                        <div class="page-block">-->
+<!--                            <div class="row align-items-center">-->
+<!--                                <div class="col-md-8">-->
+<!--                                    <div class="page-header-title">-->
+<!--                                        <h4 class="m-b-10">Dashboard</h4>-->
+<!--                                    </div>-->
+<!--                                    <ul class="breadcrumb">-->
+<!--                                        <li class="breadcrumb-item">-->
+<!--                                            <a href="index.html">-->
+<!--                                                <i class="feather icon-home"></i>-->
+<!--                                            </a>-->
+<!--                                        </li>-->
+<!--                                        <li class="breadcrumb-item">-->
+<!--                                            <a href="#!">Dashboard</a>-->
+<!--                                        </li>-->
+<!--                                    </ul>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+                    <!-- [ breadcrumb ] end -->
+<!--                    <div class="pcoded-inner-content">-->
+<!--                        <div class="main-body">-->
+                            <?php
+                            echo $this->getContent();
+                            ?>
+<!--                        </div>-->
+<!--                    </div>-->
+                </div>
+                <!-- [ style Customizer ] start -->
+
+                <!-- [ style Customizer ] end -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Warning Section Starts -->
+<!-- Older IE warning message -->
+<!--[if lt IE 10]>
+<div class="ie-warning">
+    <h1>Warning!!</h1>
+    <p>You are using an outdated version of Internet Explorer, please upgrade
+        <br/>to any of the following web browsers to access this website.
+    </p>
+    <div class="iew-container">
+        <ul class="iew-download">
+            <li>
+                <a href="http://www.google.com/chrome/">
+                    <img src="<?php echo $this->url->getStatic('/assets/images/browser/chrome.png') ?>" alt="Chrome">
+                    <div>Chrome</div>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.mozilla.org/en-US/firefox/new/">
+                    <img src="<?php echo $this->url->getStatic('/assets/images/browser/firefox.png') ?>" alt="Firefox">
+                    <div>Firefox</div>
+                </a>
+            </li>
+            <li>
+                <a href="http://www.opera.com">
+                    <img src="<?php echo $this->url->getStatic('/assets/images/browser/opera.png') ?>" alt="Opera">
+                    <div>Opera</div>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.apple.com/safari/">
+                    <img src="<?php echo $this->url->getStatic('/assets/images/browser/safari.png') ?>" alt="Safari">
+                    <div>Safari</div>
+                </a>
+            </li>
+            <li>
+                <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">
+                    <img src="<?php echo $this->url->getStatic('/assets/images/browser/ie.png') ?>" alt="">
+                    <div>IE (9 & above)</div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <p>Sorry for the inconvenience!</p>
+</div>
+<![endif]-->

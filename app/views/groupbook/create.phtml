@@ -1,0 +1,76 @@
+<div class="page-header">
+    <div class="page-block">
+        <div class="row align-items-center">
+            <div class="col-md-8">
+                <div class="page-header-title">
+                    <h4 class="m-b-10">Quản Lý Sách</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="pcoded-inner-content">
+<div class="main-body">
+<div class="page-wrapper">
+	<div class="page-body">
+		<!-- [ page content ] start -->
+		<div class="row">
+			<div class="col-lg-8 col-md-12">
+				<div class="card cre-groupbook">
+					<div class="card-block title-groupcre">
+						<h1>Thêm Loại Sách</h1>
+						<p><?php $this->flashSession->output(); ?></p>
+					</div>
+						<div class="create-data">
+							<div class="card-block body-cregroup">
+								<?php echo $this->tag->form(["groupbook/create","autocomplete" => "off",
+									"class" => "form-horizontal",
+									"id"	=> "groupbook",
+									"enctype" => "multipart/form-data"]); ?>
+
+									<div class="form-group row">
+										<div class="col-sm-12">
+											<div class="row">
+												<h5 class="col-sm-4 col-form-label text-label-right">Mã loại sách: <b style="color: red">(*)</b></h5>
+												<div class="col-sm-8">
+													<input type="text" maxlength="2" class="form-control" name="code" id="codevalidategroup" getdatagroup="<?php echo $this->url->get('groupbook/addvalidategroup')?>"  value="" >
+													<span class="messages"></span>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="form-group row">
+										<div class="col-sm-12">
+											<div class="row">
+												<h5 class="col-sm-4 col-form-label text-label-right">Tên  loại sách:<b style="color: red">(*)</b> </h5>
+												<div class="col-sm-8">
+													<input type="text" class="form-control" name="name" >
+													<span class="messages"></span>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="btncre">
+									<a  style="float: right; width: 100px" href="<?php echo $this->url->get('groupbook')?>" class ="btn btn-primary m-b-0 ">Đóng</a>
+									<input style="float: right; margin-right: 20px; width: 100px" type="submit" class="btn btn-danger" value="Thêm">
+								</div>
+								</div>
+								</div>
+
+								</div>
+								
+							</form>
+						</div>
+
+					</div>
+
+				</div>  
+
+				<!-- site Analytics card end -->
+			</div>
+
+			<!-- [ page content ] end -->
+		</div>
+	</div>
+</div>
+</div>

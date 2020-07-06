@@ -1,0 +1,32 @@
+.icon-table{
+	padding: 10px;
+	margin: 5px;
+}
+.text-label-right{
+	text-align: right;
+}
+.alert{
+    font-size: 15px;
+	}
+.error{
+	color: red;
+	padding-top: 10px;
+}
+.t_center{
+	text-align: center;
+}
+.b-066{
+	margin-bottom: 0.80em !important; 
+}
+.select2-selection__choice{
+	background: #448aff !important;
+}
+.linkdownload{
+	padding-top: 20px !important;
+}
+.table-responsive{
+	text-align: center !important;
+}
+.alert-success{
+	color: #29B921 !important;
+}

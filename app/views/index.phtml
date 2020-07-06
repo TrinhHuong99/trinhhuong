@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+      <title>BOOKSTORE</title>
+    <?php echo $this->tag->getTitle(); ?>
+    <!-- HTML5 Shim and Respond.js IE10 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 10]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="Gradient Able Bootstrap admin template made using Bootstrap 4 and it has huge amount of ready made feature, UI components, pages which completely fulfills any dashboard needs." />
+    <meta name="keywords" content="flat ui, admin Admin , Responsive, Landing, Bootstrap, App, Template, Mobile, iOS, Android, apple, creative app">
+    <meta name="author" content="Phoenixcoded" />
+    <!-- Favicon icon -->
+    <link rel="icon" href="<?= $this->url->getStatic('/assets/images/favicon.ico') ?>" type="image/x-icon">
+    <?php $this->assets->outputCss(); ?>
+</head>
+<style type="text/css">
+    body[themebg-pattern="theme1"] {
+        background-color: #2f6e91;
+    }
+    .pcoded .pcoded-header[header-theme="theme1"] {
+        background: #2f6e91;
+    }
+    .pcoded[fream-type="theme1"][theme-layout="vertical"] .page-header {
+        background: #2f6e91;
+    }
+    .pcoded[theme-layout="vertical"] .pcoded-navbar[active-item-theme="theme1"] .pcoded-item>li.active>a, .pcoded[theme-layout="vertical"] .pcoded-navbar[active-item-theme="theme1"] .pcoded-item>li.active:hover>a, .pcoded[theme-layout="vertical"] .pcoded-navbar[active-item-theme="theme1"] .pcoded-item>li.pcoded-trigger>a, .pcoded[theme-layout="vertical"] .pcoded-navbar[active-item-theme="theme1"] .pcoded-item>li.pcoded-trigger:hover>a, .pcoded[theme-layout="vertical"] .pcoded-navbar[active-item-theme="theme1"] .pcoded-item>li:hover>a, .pcoded[theme-layout="vertical"] .pcoded-navbar[active-item-theme="theme1"] .pcoded-item>li:hover:hover>a {
+        background: #2f6e91;
+        color: #fff;
+    }
+    .pod-menuhead{
+        position: fixed !important;
+        font-family: 'Quicksand', Georgia, 'Times New Roman', Times, serif;
+    }
+    .pod-menu{
+        position: fixed !important;
+        margin-top: 3.2rem;
+        font-family: 'Quicksand', Georgia, 'Times New Roman', Times, serif;
+    }
+</style>
+
+<body themebg-pattern="theme1">
+
+<?php
+echo $this->getContent();
+// {% include "partial/common/footer" %}
+?>
+
+<?php $this->assets->outputJs(); ?>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.14.0/jquery.validate.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,131 @@
+<div class="page-header">
+	<div class="page-block">
+		<div class="row align-items-center">
+			<div class="col-md-8">
+				<div class="page-header-title">
+					<h4 class="m-b-10">Thanh toán</h4>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="pcoded-inner-content">
+	<div class="main-body">
+		<div class="page-wrapper">
+			<div class="page-body">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="card" id="book_price" data-action="/bookstore/orders/price"  data-action1="/bookstore/orders/totalprice" >
+							<div class="card-header text-label-center  text-createcommand  font-text font-faauto ">
+								<h4>Thêm Đơn Đặt Hàng</h4>
+								<p><?php $this->flashSession->output(); ?></p>
+							</div>
+							<div class="card-block">
+								<?php echo $this->tag->form(["orders/create","autocomplete" => "off",
+									"class" => "form-horizontal",
+									"id"=>"create_orders",
+									"enctype" => "multipart/form-data"]); ?>
+
+									<div class="form-group row">
+										<label class="col-sm-2 col-form-label text-label-right font-text"> Mã đơn hàng:<b style="color: red">(*)</b> </label>
+										<div class="col-sm-10">
+											<input type="text" min="1" maxlength="3"  placeholder="052" class="form-control" name="code" id="codevalidate" getdata="<?php echo $this->url->get('orders/addvalidate')?>"  value="" >
+											<span class="messages"></span>
+										</div>
+									</div>
+
+									<div class="form-group row">
+										<label class="col-sm-2 col-form-label text-label-right font-text">Tiêu đề:<b style="color: red">(*)</b> </label>
+										<div class="col-sm-10">
+											<input type="text"  placeholder="Chỉ dùng cho sách ...." class="form-control"  name="title"  value="" >
+											<span class="messages"></span>
+										</div>
+									</div>
+
+									<div class="form-group row">
+										<label class="col-sm-2 col-form-label text-label-right font-text " >Tên sách:<b style="color: red">(*)</b> 
+										</label>
+										<div class="col-sm-3">
+											<select name="book_name" class="browser-default custom-select select2 book_name">
+												<option value="">---- Chọn tên sách -------</option>
+												<?php foreach($books as $key=>$val ) {?>
+													<option value="<?php echo $val->id ?>"><?php echo $val->name?></option>
+												<?php } ?>
+											</select>
+											<span class="messages"></span>
+										</div>
+
+										<label class="col-sm-2 col-form-label text-label-center font-text" for="total_book">Số lượng:<b style="color: red">(*)</b>  </label>
+										<div class="col-lg-1">
+											<input type="number" min="0" class="form-control number-book" placeholder="2" name="total_book" >
+										</div>
+										<div class="col-lg-2">
+											<label class="col-sm-5 col-form-label text-label-center font-text" >Giá: </label>
+											<div  class="col-sm-7 price-1">
+									
+											</div>
+										</div>
+										<div class="col-lg-2">
+											<label class="col-sm-7 col-form-label text-label-center font-text">Tổng:</label>
+											<div  class="col-sm-5 total-1">
+	
+											</div>
+										</div>
+										
+									</div>
+										<span class="messages"></span>
+									</div>
+									
+									<div class="form-group row">
+										<label class="col-sm-2 col-form-label text-label-right font-text">Tên Công Ty: <b style="color: red">(*)</b>  </label>
+										<div class="col-sm-10">
+											<select name="company_name" class="browser-default custom-select select2">
+												<option value="">---- Chọn tên công ty -------</option>
+												<?php foreach($company as $key=>$val ) {?>
+													<option value="<?php echo $val->id ?>"><?php echo $val->company_name?></option>
+												<?php } ?>
+											</select>
+											<span class="messages"></span>
+										</div>
+									</div>
+
+									<div class="form-group row">
+										<label class="col-sm-2 col-form-label text-label-right font-text">Trạng thái: <b style="color: red">(*)</b> </label>
+										<div class="col-sm-10">
+											<select name="status" class="browser-default custom-select  select2">
+												<option value="">---- Chọn trạng thái -------</option>
+												<?php foreach($status as $key=>$val ) {?>
+													<option value="<?php echo $val->id ?>"><?php echo $val->status_name?></option>
+												<?php } ?>
+											</select>
+											<span class="messages"></span>
+										</div>
+									</div>
+
+									<div class="form-group row">
+										<label class="col-sm-2 col-form-label text-label-right font-text">Ghi chú:</label>
+										<div class="col-sm-10">
+											<textarea name="contenmail"></textarea>
+											<br/>
+											<p class="erroreditor" style="color: red; font-size: 15px"></p>
+											<p hidden class="results" style="color: green;"></p>
+											<span class="messages"></span>
+										</div>
+									</div>
+
+									<div class="pb20">
+										<a  style="float: right; width: 100px" href="<?php echo $this->url->get('orders')?>" class ="btn btn-primary m-b-0 ">Đóng</a>
+										<input style="float: right; margin-right: 20px; width: 100px" type="submit" class="btn btn-danger" value="Thêm">
+									</div>
+
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+				<!-- [ page content ] end -->
+			</div>
+		</div>
+
+	</div>
+</div>

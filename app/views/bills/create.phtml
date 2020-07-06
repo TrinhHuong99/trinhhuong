@@ -1,0 +1,101 @@
+<div class="page-header">
+	<div class="page-block">
+		<div class="row align-items-center">
+			<div class="col-md-8">
+				<div class="page-header-title">
+					<h4 class="m-b-10">Thanh Toán</h4>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="pcoded-inner-content">
+	<div class="main-body">
+		<div class="page-wrapper">
+			<div class="page-body">
+				<div class="row">
+					<div class="col-md-12">
+
+						<div class="card">
+							<div class="card-header text-label-center  text-createcommand  font-text font-faauto">
+								<h4>Thêm Mới Hóa Đơn</h4>
+								<p><?php $this->flashSession->output(); ?></p>
+							</div>
+							<div class="card-block">
+								<?php echo $this->tag->form(["bills/create","autocomplete" => "off",
+									"class" => "form-horizontal",
+									"id"=>"create_bills",
+									"enctype" => "multipart/form-data"]); ?>
+									<div class="form-group row">
+										<label class="col-sm-2 col-form-label font-text text-label-right"> Mã hóa đơn:<b style="color: red">(*)</b> </label>
+										<div class="col-sm-10">
+											<input type="text" min="1" maxlength="3" class="form-control" name="code" id="codevalidate" getdata="<?php echo $this->url->get('bills/addvalidate')?>"  value="" >
+											<span class="messages"></span>
+										</div>
+									</div>
+									<div class="form-group row">
+										<label class="col-sm-2 col-form-label font-text text-label-right">Tên sách:<b style="color: red">(*)</b></label>
+										<div class="col-sm-10">
+											<select name="book_name" class="browser-default custom-select">
+												<option value="">---- Chọn tên sách -------</option>
+												<?php foreach($books as $key=>$val ) {?>
+													<option value="<?php echo $val->id ?>"><?php echo $val->name?></option>
+												<?php } ?>
+											</select>
+											<span class="messages"></span>
+										</div>
+									</div>
+									<div class="form-group row">
+										<label class="col-sm-2 col-form-label font-text text-label-right">Tên khách hàng:<b style="color: red">(*)</b></label>
+										<div class="col-sm-10">
+											<input type="text" class="form-control"  name="name_customer"  value="" >
+											<span class="messages"></span>
+										</div>
+									</div>
+									<div class="form-group row">
+										<label class="col-sm-2 col-form-label font-text text-label-right" for="birthday">Birthday: </label>
+										<div class="col-sm-3">
+											<input  class="form-control" type="date" id="birthday" name="birthday">
+										</div>
+										<label class="col-sm-2 col-form-label font-text text-label-right" for="birthday">Discount:</label>
+										<div class="col-lg-2">
+											<select name="discount" style="width: 60%;" class="browser-default custom-select">
+												<option value="0">----</option>
+												<option value="10"> 10% </option>
+												<option value="20"> 20% </option>
+												<option value="30"> 30% </option>
+												<option value="40"> 40% </option>
+												<option value="50"> 50% </option>
+												<option value="60"> 60% </option>
+												<option value="70"> 70% </option>
+												<option value="80"> 80% </option>
+												<option value="90"> 90% </option>
+												<option value="100"> 100% </option>
+											</select>
+										</div>
+									</div>
+									<div class="form-group row">
+										<label class="col-sm-2 font-text col-form-label text-label-right">Ghi chú: </label>
+											<textarea name="contenmail"></textarea>
+											<br/>
+											<p class="erroreditor" style="color: red; font-size: 15px"></p>
+											<p hidden class="results" style="color: green;"></p>
+											<span class="messages"></span>
+										</div>
+									</div>
+
+									<div>
+										<a  style="float: right; width: 100px" href="<?php echo $this->url->get('bills')?>" class ="btn btn-primary m-b-0 ">Đóng</a>
+										<input style="float: right; margin-right: 20px; width: 100px" type="submit" class="btn btn-danger" value="Thêm">
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+				<!-- [ page content ] end -->
+			</div>
+		</div>
+
+	</div>
+</div>
